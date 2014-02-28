@@ -23,29 +23,40 @@ public class Driver {
     public static void main(String[] args) throws FileNotFoundException {
         int x = 0; 
         int y = 0;
-        int value;
+        char value;
         // TODO code application logic here
         Scanner in = new Scanner(new FileReader("C://Users/nitroluke/Desktop/AdjacencyMatrix.txt"));
 //        in.useDelimiter("");
         int adjacencyMatrix[][] = new int[5][5];
         while(in.hasNext()){
-            System.out.print("");
-            
-//            System.out.print(in.next());
-//            System.out.println("We get here");
+//            System.out.print("");
             String string = in.next();
             for(int i = 0; i < string.length(); i++){
-                if (y > 4){
+                if (y > 4){ // go to the next line reset y, and increment x.
                 x++;
                 y = 0; 
                 }
                 value = string.charAt(i);
-                adjacencyMatrix[x][y] = (int)value;
+                switch(value){  // doing this becuase it was still using the ASCII values every after the type cast.
+                    case 48: adjacencyMatrix[x][y] = 0;
+                        break;
+                    case 49: adjacencyMatrix[x][y] = 1;
+                        break;
+                    default:
+                        System.out.println("This should never happen");
+                        return;
+                }
                 y++;
             }
             
             
 //            System.out.println("y = " + y + " x = " + x);
+        }
+        for(int i = 0; i < 5; i ++){
+            for (int j = 0; j < 5; j++){
+                System.out.print(adjacencyMatrix[i][j] + "|");
+            }
+            System.out.println("");
         }
     }
 }
