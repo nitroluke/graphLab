@@ -17,19 +17,23 @@ import java.util.Scanner;
  * @author nitroluke
  */
 public class Driver {
+    
         /**
      * @param args the command line arguments
+     * @throws java.io.FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
+        int arrLength = 5;
         int x = 0; 
         int y = 0;
+        
         char value;
         // TODO code application logic here
         Scanner in = new Scanner(new FileReader("C://Users/nitroluke/Desktop/AdjacencyMatrix.txt"));
 //        in.useDelimiter("");
-        int adjacencyMatrix[][] = new int[5][5];
+        int adjacencyMatrix[][] = new int[arrLength][arrLength];
+        boolean bRepresentation[][] = new boolean[arrLength][arrLength];
         while(in.hasNext()){
-//            System.out.print("");
             String string = in.next();
             for(int i = 0; i < string.length(); i++){
                 if (y > 4){ // go to the next line reset y, and increment x.
@@ -38,9 +42,13 @@ public class Driver {
                 }
                 value = string.charAt(i);
                 switch(value){  // doing this becuase it was still using the ASCII values every after the type cast.
-                    case 48: adjacencyMatrix[x][y] = 0;
+                    case 48: 
+                        adjacencyMatrix[x][y] = 0;
+                        bRepresentation[x][y] = false;
                         break;
-                    case 49: adjacencyMatrix[x][y] = 1;
+                    case 49: 
+                        adjacencyMatrix[x][y] = 1;
+                        bRepresentation[x][y] = true;
                         break;
                     default:
                         System.out.println("This should never happen");
@@ -48,13 +56,14 @@ public class Driver {
                 }
                 y++;
             }
-            
-            
+          Graph g = new Graph(adjacencyMatrix);  
+          g.BFS(0);
 //            System.out.println("y = " + y + " x = " + x);
         }
-        for(int i = 0; i < 5; i ++){
-            for (int j = 0; j < 5; j++){
-                System.out.print(adjacencyMatrix[i][j] + "|");
+        for(int i = 0; i < adjacencyMatrix.length; i ++){
+            for (int j = 0; j < adjacencyMatrix.length; j++){
+                System.out.print(adjacencyMatrix[i][j]);
+                
             }
             System.out.println("");
         }

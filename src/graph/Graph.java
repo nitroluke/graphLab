@@ -6,12 +6,38 @@
 
 package graph;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  *
  * @author nitroluke
  */
 public class Graph {
-
-
+private int adjMatrix[][];
+public Graph(int adjMatrix[][]){
+    this.adjMatrix = adjMatrix;
     
+}
+public void BFS(int start){  // do this using a queue
+ Queue<Integer> queue = new LinkedList<>();
+ boolean visited[] = new boolean[adjMatrix.length * adjMatrix.length];
+
+ queue.offer(start);
+ visited[start] = true;
+ while(!queue.isEmpty()){
+    int current = queue.poll();
+     System.out.println("The current node we are at is " + current);    
+    for(int y = 0; y < adjMatrix.length; y++){
+        if(adjMatrix[current][y] == 1 && !visited[y]){
+            queue.offer(y);
+            visited[y] = true;
+            System.out.println(" BFS - Adding node " + y + " to the queue" );
+     }
+        
+    }
+     System.out.println("Done processing node " + current);
+ }
+
+}
 }
