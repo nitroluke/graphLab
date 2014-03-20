@@ -3,6 +3,7 @@ package graph;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
+import java.math.*;
 //C:\Users\nitroluke\Documents\NetBeansProjects\Tree\src\Driver.java
 
 /*
@@ -28,10 +29,8 @@ public class Driver {
 
         char value;
         // TODO code application logic here
-        Scanner in = new Scanner(new FileReader("C://Users/nitroluke/Desktop/AdjacencyMatrix.txt"));
-//        in.useDelimiter("");
+        Scanner in = new Scanner(new FileReader("C://Users/nitroluke/Documents/NetBeansProjects/Graph/AdjacencyMatrix.txt"));
         int adjacencyMatrix[][] = new int[arrLength][arrLength];
-//        boolean bRepresentation[][] = new boolean[arrLength][arrLength];
 
         while (in.hasNext()) {
             String string = in.next();
@@ -59,7 +58,32 @@ public class Driver {
 
 //            System.out.println("y = " + y + " x = " + x);
         }
-        Graph g = new Graph(adjacencyMatrix);
+        Scanner in2 = new Scanner(new FileReader("C://Users/nitroluke/Documents/NetBeansProjects/Graph/WeightedMatrix.txt"));
+        int weightedMatrix[][] = new int[arrLength][arrLength];
+        int weight = 0;
+        x = 0;
+        y = 0;
+        while(in2.hasNext()){
+            for(int i = 0; i < arrLength; i++){
+                weight = in2.nextInt();
+                System.out.println("weight =  " + weight);
+                if(y > 4){
+                x++;
+                y = 0;
+                }
+                switch(weight){
+                    case(-99):
+                        weightedMatrix[x][y] = Integer.MAX_VALUE;
+                        break;
+                        
+                    default:
+                        weightedMatrix[x][y] = weight;
+                }
+                y++;
+            }
+        }
+        
+        Graph g = new Graph(adjacencyMatrix, weightedMatrix);
 
         System.out.println("\nDoing Breadth First Search starting at " + start);
         System.out.println("---------------------------------------\n");
@@ -73,6 +97,7 @@ public class Driver {
         System.out.println("\nFinished Breadth First Search");
         System.out.println("_______________________________________\n");
         
+        System.out.println("The Adjacency Matrix\n");
         for (int i = 0; i < adjacencyMatrix.length; i++) {
             for (int j = 0; j < adjacencyMatrix.length; j++) {
                 System.out.print(adjacencyMatrix[i][j]);
@@ -80,5 +105,14 @@ public class Driver {
             }
             System.out.println("");
         }
+        
+        System.out.println("\nThe Weighted Matrix\n");
+        for (int i = 0; i < weightedMatrix.length; i++) {
+            for (int j = 0; j < weightedMatrix.length; j++) {
+                System.out.print(weightedMatrix[i][j] + " ");
+            }
+            System.out.println("");
+        }
+        System.out.println("");
     }
 }
