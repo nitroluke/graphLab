@@ -69,53 +69,30 @@ public class Graph {
         
     }
     
-//    private void Prim(int weightedMat[][]){
-//        //int[] source = new int[weightedMat.length];
-//        double[] distance = new double[weightedMat.length];
-//        boolean[] nodeVisited = new boolean[weightedMat.length];
-//        
-//        for(int i = 0; i < weightedMat.length; i++){
-//            nodeVisited[i] = false; // set all the nodesvisited to false
-//            distance[i] = Double.POSITIVE_INFINITY; //set all the distances to infinity
-//        }
-//        nodeVisited[0] = true; // start at 0
-//        distance[0] = 0;
-//        int closestNode = 0;
-//        double smallestDist;
-//        
-//        for(int i = 0; i < weightedMat.length; i++){
-//            smallestDist = Double.POSITIVE_INFINITY;
-//            for(int j = 0; j < weightedMat.length; j++){
-//                if(!nodeVisited[j]){
-//                    double weight = 
-//                }
-//            }
-//        }
-//    }
-    
-    private void Prim(){
-        // innitialize S with the start verted s, and V-S with the remaining vertices.
+    private void Prim(int weightedMat[]){
+        int[] source = new int[weightedMat.length];
+        double[] distance = new double[weightedMat.length];
+        boolean[] nodeVisited = new boolean[weightedMat.length];
+        
         for(int i = 0; i < weightedMat.length; i++){
-            //p[v] = s // start = 0
-            if(weightedMat[0][i] != 0){
-                //set d[v] = w(s,v);
-            }else{
-                //dv = Double.POSITIVE_INFINITY;
-            }
-            while(){ //V-S is not empty
-                for(){// all u in V-S, find the smallest d[u]
-                    //remove the smallest u from V-S and add it to S
-                    //inset the edge (u,p[u]) into the spanning tree
-                    for(){ //all v is V-S
-                        if(){ // w(u,v) < d[v]
-                            //set d[v] to w(u,v)
-                            //set p[v] to u
-                        }
-                    }
+            nodeVisited[i] = false;
+            distance[i] = Double.POSITIVE_INFINITY;
+        }
+        nodeVisited[0] = true;
+        distance[0] = 0;
+        int closestNode = 0;
+        double smallestDist;
+        
+        for(int i = 0; i < weightedMat.length; i++){
+            smallestDist = Double.POSITIVE_INFINITY;
+            for(int j = 0; j < weightedMat.length; j++){
+                if(!nodeVisited[j]){
+                    double weight = 
                 }
             }
         }
     }
+    
     private void Floyd(){
         
     }
