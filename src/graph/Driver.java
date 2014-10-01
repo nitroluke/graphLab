@@ -25,6 +25,7 @@ public class Driver {
         int arrLength = 6;
         int x = 0;
         int y = 0;
+        int start = 0;  // which node do you want to start to search from
 
         char value;
         // TODO code application logic here
@@ -83,7 +84,6 @@ public class Driver {
         }
         
         Graph g = new Graph(adjacencyMatrix, weightedMatrix);
-        int start = 0;  // which node do you want to start to search from
 
         System.out.println("\nDoing Breadth First Search starting at " + start);
         System.out.println("---------------------------------------\n");
@@ -91,25 +91,13 @@ public class Driver {
         System.out.println("\nFinished Breadth First Search");
         System.out.println("_______________________________________\n");
 
-        System.out.println("\nDoing Depth First Search starting at " + start);
+        System.out.println("\nDoing Depth First Search starting at 0");
         System.out.println("---------------------------------------\n");
         g.DFS(start);
         System.out.println("\nFinished Breadth First Search");
         System.out.println("_______________________________________\n");
         
-        System.out.println("\nDoing Dijkstra's starting at " + start);
-        System.out.println("---------------------------------------\n");
-        g.Dijkstra(start);
-        System.out.println("\nFinished Dijkstra's Algorithm");
-        System.out.println("_______________________________________\n");
-         
-        System.out.println("\nDoing Prims starting at " + start);
-        System.out.println("---------------------------------------\n");
-        g.Prims(start);
-        System.out.println("\nFinished Prims Algorithm");
-        System.out.println("_______________________________________\n");
-        
-        System.out.println("The Adjacency Matrix for DFS and BFS\n");
+        System.out.println("The Adjacency Matrix\n");
         for (int i = 0; i < adjacencyMatrix.length; i++) {
             for (int j = 0; j < adjacencyMatrix.length; j++) {
                 System.out.print(adjacencyMatrix[i][j]);
@@ -118,7 +106,7 @@ public class Driver {
             System.out.println("");
         }
         
-        System.out.println("\nThe Weighted Matrix for Dijkstra's\n");
+        System.out.println("\nThe Weighted Matrix\n");
         for (int i = 0; i < weightedMatrix.length; i++) {
             for (int j = 0; j < weightedMatrix.length; j++) {
                 System.out.print(weightedMatrix[i][j] + " ");
@@ -126,6 +114,5 @@ public class Driver {
             System.out.println("");
         }
         System.out.println("");
-       
     }
 }
