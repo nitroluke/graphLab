@@ -22,7 +22,7 @@ public class Driver {
      * @throws java.io.FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
-        int arrLength = 5;
+        int arrLength = 6;
         int x = 0;
         int y = 0;
 
@@ -34,7 +34,7 @@ public class Driver {
         while (in.hasNext()) {
             String string = in.next();
             for (int i = 0; i < string.length(); i++) {
-                if (y > 4) { // go to the next line reset y, and increment x.
+                if (y > arrLength - 1 ) { // go to the next line reset y, and increment x.
                     x++;
                     y = 0;
                 }
@@ -66,7 +66,7 @@ public class Driver {
             for(int i = 0; i < arrLength; i++){
                 weight = in2.nextInt();
                 System.out.println("weight =  " + weight);
-                if(y > 4){
+                if(y > arrLength-1){
                 x++;
                 y = 0;
                 }
