@@ -68,7 +68,6 @@ public class Graph {
 
         
     }
-<<<<<<< HEAD
     
     private void Prim(int weightedMat[]){
         int[] source = new int[weightedMat.length];
@@ -96,7 +95,7 @@ public class Graph {
     
     private void Floyd(){
         
-=======
+    }
     
 //    private void Prim(int weightedMat[][]){
 //        //int[] source = new int[weightedMat.length];
@@ -144,10 +143,6 @@ public class Graph {
                 }
             }
         }
->>>>>>> parent of a5dcf87... finished Prims and Dijkstra's.  Let the testing begin
-    }
-    private void Floyd(){
-        
     }
     
     private void FloydWarsall(int path[][]){
